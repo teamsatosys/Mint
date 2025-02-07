@@ -120,6 +120,60 @@ RECOMMENDED DEVELOPMENT STEPS:
 This provides a structured approach to implementing the device while maintaining security and usability. Each component can be developed and tested independently before integration.
 
 
+
+:) 
+
+Here's a glossary of key terms for the Mint Bitcoin Bearer Device project:
+
+BEARER INSTRUMENT
+- Traditional meaning: A document that entitles the holder to rights of ownership or specific payments (like bearer bonds or cash)
+- In Mint context: A physical device that contains Bitcoin value, transferable by physically handing over the device
+
+CIRCUIT INTEGRITY
+- Traditional meaning: The proper functioning of an electronic circuit
+- In Mint context: A physical trace on the PCB that, when intact, indicates the device hasn't been used/spent
+
+OTP (One-Time Programmable)
+- Traditional meaning: Memory that can be written once and never changed
+- In Mint context: Security feature that permanently records when the device has been spent/circuit broken
+
+ENTROPY
+- Traditional meaning: Randomness or disorder in a system
+- In Mint context: Random data (from user's dropped file) used to generate the Bitcoin private key
+
+FAT12
+- Traditional meaning: A simple file system format
+- In Mint context: The file system implemented on the device's USB storage for compatibility
+
+PRIVATE KEY
+- Traditional meaning: Secret part of a cryptographic key pair
+- In Mint context: The secret Bitcoin key that's encrypted while circuit is intact, revealed when broken
+
+PUBLIC ADDRESS
+- Traditional meaning: The publicly shareable part of a bitcoin wallet
+- In Mint context: The Bitcoin address shown on the device's storage that can be used to verify/send funds
+
+USB MASS STORAGE
+- Traditional meaning: A device that appears as a standard storage drive when connected via USB
+- In Mint context: How the device presents itself to computers for interaction
+
+TAMPER EVIDENCE
+- Traditional meaning: Physical indication that something has been altered
+- In Mint context: Combination of broken circuit and burned OTP that proves the device has been spent
+
+MINT
+- Traditional meaning: A facility that produces money or coins
+- In Mint context: The process of creating a new bearer device with a fresh Bitcoin wallet
+
+BURNING
+- Traditional meaning: Permanent marking or destruction
+- In Mint context: The irreversible programming of the OTP memory when the circuit is broken
+
+WALLET GENERATION
+- Traditional meaning: Creating a new bitcoin wallet
+- In Mint context: The process of locally creating a Bitcoin key pair when a file is dropped onto the device
+
+
 ![Mint back](https://github.com/user-attachments/assets/edf9ac32-770a-43b5-8e4c-3350719f92b8)![Mint front](https://github.com/user-attachments/assets/83d60661-bbfe-471f-9669-bb18b0b0bc70)
 
 
