@@ -1,6 +1,6 @@
 PROJECT OVERVIEW:
 
-The Mint device is a physical Bitcoin bearer instrument that allows secure transfer of bitcoin value between parties without requiring trust or online verification. It's inspired by physical bearer bonds and OpenDime.
+The Mint device is a physical Bitcoin bearer instrument that allows secure transfer of bitcoin value between parties without requiring trust or online verification. It's inspired by physical bearer bonds.
 
 CORE CONCEPT:
 - Device acts as a USB drive
@@ -118,5 +118,11 @@ RECOMMENDED DEVELOPMENT STEPS:
 4. Only proceed when current step is fully functional
 
 This provides a structured approach to implementing the device while maintaining security and usability. Each component can be developed and tested independently before integration.
+![Mint back](https://github.com/user-attachments/assets/edf9ac32-770a-43b5-8e4c-3350719f92b8)![Mint front](https://github.com/user-attachments/assets/83d60661-bbfe-471f-9669-bb18b0b0bc70)
+[Schematic_matrixlbc-PCB-Design_2025-02-01.pdf](https://github.com/user-attachments/files/18704674/Schematic_matrixlbc-PCB-Design_2025-02-01.pdf)
 
-Would you like me to elaborate on any particular aspect?
+
+
+
+
+
