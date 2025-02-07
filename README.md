@@ -181,5 +181,71 @@ WALLET GENERATION
 
 
 
+The key generation process in the Mint device context:
 
+BITCOIN KEY GENERATION:
+1. Entropy Source:
+- User drops any file onto the USB drive
+- File contents are used as seed data
+- Additional entropy added from hardware-specific sources (device ID, timestamps)
+
+2. Key Derivation:
+```
+User File Data + Hardware Entropy
+↓
+SHA-256 Hash
+↓
+32-byte Private Key
+↓
+secp256k1 Elliptic Curve
+↓
+Public Key (33 bytes)
+↓
+Bitcoin Address
+```
+
+SECURITY STATES:
+
+1. Circuit Intact:
+```
+Private Key: Encrypted in memory
+Public Key: Visible in USB storage
+Status: Ready for transfer/gifting
+```
+
+2. Circuit Broken:
+```
+Private Key: Decrypted and revealed
+Public Key: Still visible
+Status: Ready for wallet sweeping
+```
+
+KEY STORAGE:
+- Private key stored in encrypted form while circuit intact
+- Encryption key derived from device-specific parameters
+- Public key/address always stored in plain text
+
+SUGGESTED TEST IMPLEMENTATION:
+```cpp
+// Basic test version
+void generateWallet(uint8_t* entropy, size_t size) {
+// SHA256(entropy)
+uint8_t private_key[32];
+sha256(entropy, size, private_key);
+
+// Generate public key (implement secp256k1)
+uint8_t public_key[33];
+generate_public_key(private_key, public_key);
+
+// Generate Bitcoin address
+char address[35];
+generate_bitcoin_address(public_key, address);
+}
+```
+
+FINAL IMPLEMENTATION NEEDS:
+1. Proper Bitcoin key derivation (BIP standards)
+2. Secure entropy mixing
+3. Proper encryption for private key storage
+4. Safe memory handling
 
