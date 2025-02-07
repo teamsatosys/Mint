@@ -118,9 +118,12 @@ RECOMMENDED DEVELOPMENT STEPS:
 4. Only proceed when current step is fully functional
 
 This provides a structured approach to implementing the device while maintaining security and usability. Each component can be developed and tested independently before integration.
-![Mint back](https://github.com/user-attachments/assets/edf9ac32-770a-43b5-8e4c-3350719f92b8)![Mint front](https://github.com/user-attachments/assets/83d60661-bbfe-471f-9669-bb18b0b0bc70)
-[Schematic_matrixlbc-PCB-Design_2025-02-01.pdf](https://github.com/user-attachments/files/18704674/Schematic_matrixlbc-PCB-Design_2025-02-01.pdf)
 
+
+![Mint back](https://github.com/user-attachments/assets/edf9ac32-770a-43b5-8e4c-3350719f92b8)![Mint front](https://github.com/user-attachments/assets/83d60661-bbfe-471f-9669-bb18b0b0bc70)
+
+
+[Schematic_2025-02-01.pdf](https://github.com/user-attachments/files/18705007/Schematic_2025-02-01.pdf)
 
 
 
