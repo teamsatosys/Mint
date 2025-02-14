@@ -174,9 +174,9 @@ WALLET GENERATION
 - In Mint context: The process of locally creating a Bitcoin key pair when a file is dropped onto the device
 
 ![mintv2](https://github.com/user-attachments/assets/740382dc-a39b-42c2-aa2f-edde84606bc1)
-![Mint Top PCB](https://github.com/user-attachments/assets/5fe77935-d45a-4e20-a30b-32d5e161c6bb)
-![Mint bottom PCB](https://github.com/user-attachments/assets/a532b73e-0481-433d-b417-adc175b311ce)
-![Mint Layers PCB](https://github.com/user-attachments/assets/404eebcb-6bd9-4e11-aa19-379db27bf1b7)
+![Mint_Top_PCB-removebg-preview](https://github.com/user-attachments/assets/1a48315d-c05a-4b4b-b64a-590d7c1bc9ab)
+![Mint_bottom_PCB-removebg-preview](https://github.com/user-attachments/assets/baa96299-f7da-4c42-8c0a-035040abb5bf)
+![Mint_Layers_PCB-removebg-preview](https://github.com/user-attachments/assets/23814ec1-a92e-40b9-8d8f-616952c8c3d6)
 ![Mint Component List](https://github.com/user-attachments/assets/69878a04-bdf7-4ddf-a492-b0ab1b8a6492)
 
 
