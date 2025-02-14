@@ -174,12 +174,12 @@ void generateWallet(uint8_t* entropy, size_t size) {
 
 ---
 
-🤝 Contributing
+🤝 Contributing:
 We welcome contributions from security researchers, hardware engineers, and bitcoiners in general.
 
-⚠️ Security Note
+⚠️ Security Note:
 Mint implements rigorous security standards. All implementations must follow our comprehensive security guidelines.
 
-📜 License
+📜 License:
 MIT License - Freedom to innovate, obligation to attribute.
 
