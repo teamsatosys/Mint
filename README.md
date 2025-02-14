@@ -1,6 +1,12 @@
 MINT: Physical Bitcoin Bearer Device
 [![Status: Alpha](https://img.shields.io/badge/Status-Alpha-orange.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)]()
+![mintv2](https://github.com/user-attachments/assets/9efd55ef-63d9-461b-b596-ebfd1218a14b)
+![Mint_Top_PCB-removebg-preview](https://github.com/user-attachments/assets/c22058bf-2529-41b7-841b-06c61c55fcee)
+![Mint_Layers_PCB-removebg-preview](https://github.com/user-attachments/assets/bf18814a-841f-4cd4-857b-7f719fb3d106)
+![Mint Component List](https://github.com/user-attachments/assets/a64945a3-2fc1-44b0-96ae-0211bd5cb7f3)
+
+
 
 Overview
 
