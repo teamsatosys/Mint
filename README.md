@@ -10,10 +10,15 @@
 🏆 Core Features
 
 ✅ **USB Drive Interface** – Plug it in like a standard USB stick 
+
 ✅ **Tamper-Evident Security** – Physically breaking the circuit **permanently** reveals the private key 
+
 ✅ **Bitcoin Key Vault** – Stores an encrypted Bitcoin private key until activated 
+
 ✅ **One-Time Programmable (OTP) Memory** – Ensures **irreversible circuit break detection** 
+
 ✅ **Visual Status Indicator** – RGB LED shows real-time device state
+
 
 🔩 Hardware Breakdown
 
