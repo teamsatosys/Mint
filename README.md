@@ -143,6 +143,7 @@ Unlike traditional **hardware wallets**, Mint is a **physical Bitcoin instrument
 ![mintv2](https://github.com/user-attachments/assets/358ed475-1666-4fdf-9f24-85b0c5721bf6)
 ![Mint_Top_PCB-removebg-preview](https://github.com/user-attachments/assets/ebfa36c4-efb8-4c33-9b49-b35448d6788a)
 ![Mint_Layers_PCB-removebg-preview](https://github.com/user-attachments/assets/f1ca6875-9305-4681-b5b6-e75783d2bf76)
+![Mint_bottom_PCB-removebg-preview](https://github.com/user-attachments/assets/48ca20a6-6ad1-4647-9a84-f48218eb581b)
 
 ---
 
