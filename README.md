@@ -173,12 +173,11 @@ WALLET GENERATION
 - Traditional meaning: Creating a new bitcoin wallet
 - In Mint context: The process of locally creating a Bitcoin key pair when a file is dropped onto the device
 
-
-![Mint back](https://github.com/user-attachments/assets/edf9ac32-770a-43b5-8e4c-3350719f92b8)![Mint front](https://github.com/user-attachments/assets/83d60661-bbfe-471f-9669-bb18b0b0bc70)
-
-
-[Schematic_2025-02-01.pdf](https://github.com/user-attachments/files/18705007/Schematic_2025-02-01.pdf)
-
+![mintv2](https://github.com/user-attachments/assets/740382dc-a39b-42c2-aa2f-edde84606bc1)
+![Mint Top PCB](https://github.com/user-attachments/assets/5fe77935-d45a-4e20-a30b-32d5e161c6bb)
+![Mint bottom PCB](https://github.com/user-attachments/assets/a532b73e-0481-433d-b417-adc175b311ce)
+![Mint Layers PCB](https://github.com/user-attachments/assets/404eebcb-6bd9-4e11-aa19-379db27bf1b7)
+![Mint Component List](https://github.com/user-attachments/assets/69878a04-bdf7-4ddf-a492-b0ab1b8a6492)
 
 
 The key generation process in the Mint device context:
