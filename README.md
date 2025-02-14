@@ -20,7 +20,7 @@ With PCB production underway and testing in progress, Mint represents a breakthr
 Mint's elegant "break-to-reveal" mechanism makes Bitcoin tangible:
 - **Battle-tested Security**: Multi-layer encryption with physical state verification
 - **True Bearer Instrument**: As natural as handling cash, with cold storage security
-- **Proven Hardware**: Custom PCB design with military-grade security components
+- **Proven Hardware**: Custom PCB design with known components
 - **Intuitive Interface**: Plug-and-play USB operation with clear visual feedback
 - **Zero Trust Design**: Complete verification through physical properties
 
