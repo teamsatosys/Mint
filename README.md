@@ -3,6 +3,9 @@
 [![Status: Alpha](https://img.shields.io/badge/Status-Alpha-orange.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)]()
 
+[![Join our Telegram Channel](https://img.shields.io/badge/Join-Our%20Telegram-blue?logo=telegram)](https://t.me/bitcoinmint)
+
+
 🚀 Project Overview
 
 **Mint** is a physical **Bitcoin bearer instrument**, enabling secure, **trustless** transfers of Bitcoin value **offline**. Inspired by physical bearer bonds, this device ensures **tamper-proof ownership**—a true bitcoin bearer asset.
