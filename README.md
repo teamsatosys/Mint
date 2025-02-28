@@ -101,12 +101,19 @@ Mint employs a defense-in-depth security approach with multiple layers:
 ## 🏗️ Development Roadmap
 
 1️⃣ ✅ Implement **USB Mass Storage** 
+
 2️⃣ ✅ Add **LED Status Indication** 
+
 3️⃣ ✅ Integrate **Circuit Monitoring** 
+
 4️⃣ ✅ Implement **SE050 Secure Element Integration**
+
 5️⃣ ✅ Implement **Bitcoin Wallet Generation** with BIP standards
+
 6️⃣ ✅ Develop **Tamper-Evident OTP Security**
+
 7️⃣ 🛡️ **Extensive Security Testing & Auditing**
+
 8️⃣ 🔄 **Hardware Production & Distribution**
 
 ## 🏭 Manufacturing
