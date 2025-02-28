@@ -1,4 +1,4 @@
-🔥 MINT: The Bitcoin Bearer Device 🔥
+# 🔥 MINT: The Bitcoin Bearer Device 🔥
 
 [![Status: Alpha](https://img.shields.io/badge/Status-Alpha-orange.svg)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)]()
@@ -6,189 +6,170 @@
 [![Join our Telegram Channel](https://img.shields.io/badge/Join-Our%20Telegram-blue?logo=telegram)](https://t.me/bitcoinmint)
 
 
-🚀 Project Overview
+## 🚀 Project Overview
 
 **Mint** is a physical **Bitcoin bearer instrument**, enabling secure, **trustless** transfers of Bitcoin value **offline**. Inspired by physical bearer bonds, this device ensures **tamper-proof ownership**—a true bitcoin bearer asset.
 
-🏆 Core Features
+## 🏆 Core Features
 
 ✅ **USB Drive Interface** – Plug it in like a standard USB stick 
 
 ✅ **Tamper-Evident Security** – Physically breaking the circuit **permanently** reveals the private key 
 
-✅ **Bitcoin Key Vault** – Stores an encrypted Bitcoin private key until activated 
+✅ **Bitcoin Key Vault** – Stores a Bitcoin private key secured by the SE050 secure element
 
 ✅ **One-Time Programmable (OTP) Memory** – Ensures **irreversible circuit break detection** 
 
 ✅ **Visual Status Indicator** – RGB LED shows real-time device state
 
+✅ **Secure Hardware** – Integrates NXP SE050 secure element for cryptographic operations
 
-🔩 Hardware Breakdown
+## 🔒 Security Architecture
+
+Mint employs a defense-in-depth security approach with multiple layers:
+
+1. **Hardware Security Module**: The SE050 secure element provides:
+   - Hardware-backed secure key generation and storage
+   - Tamper-resistant execution environment
+   - Hardware cryptographic acceleration for secp256k1 operations
+   - One-Time Programmable (OTP) memory for permanent tamper detection
+
+2. **Physical Security**:
+   - Break-circuit tamper detection with permanent state recording
+   - Irreversible physical state change when opened
+
+3. **Cryptographic Security**:
+   - Industry-standard BIP32/39/44 key derivation
+   - Constant-time implementations of all cryptographic operations
+   - True hardware random number generation with health monitoring
+
+4. **Operational Security**:
+   - All sensitive operations occur within the secure element
+   - Zero sensitive data exposure in main MCU memory
+   - Explicit memory zeroing of all sensitive buffers
+
+## 🔩 Hardware Breakdown
 
 | **Component**                        | **Purpose**                                                |
 | ------------------------------------ | ---------------------------------------------------------- |
-| **RP2040 MCU**                       | Handles key generation, encryption, and circuit monitoring |
+| **RP2040 MCU**                       | Main processor, system control, and USB interface          |
+| **NXP SE050 Secure Element**         | Cryptographic operations, tamper detection, key storage    |
 | **WS2812B RGB LED**                  | Provides visual feedback on device state                   |
-| **W25Q128JV Flash Memory**           | Secure storage of Bitcoin private key & public address     |
+| **W25Q128JV Flash Memory**           | Storage for public address and device state                |
 | **Physical Breakable Circuit Trace** | Mechanism for tamper detection                             |
 | **USB Mass Storage Interface**       | Allows interaction with the device like a flash drive      |
 
-🛠️ How It Works
+## 🛠️ How It Works
 
-1️⃣ **Circuit Intact (Sealed Mode)**
+### 1️⃣ **Circuit Intact (Sealed Mode)**
 
-- The private key remains **encrypted**.
-- The device functions as a USB drive, showing only the **public Bitcoin address**.
+- Private key remains securely stored within the SE050 secure element
+- Device functions as a USB drive, showing only the **public Bitcoin address**
 - Status LED: **🔴 Red (Secure Mode)**
 
-2️⃣ **Circuit Broken (Revealed Mode)**
+### 2️⃣ **Circuit Broken (Revealed Mode)**
 
-- The private key is **permanently revealed**.
-- OTP memory is **burned** to prevent reversal.
+- The private key is **permanently revealed** in WIF format
+- OTP memory in SE050 is **burned** to prevent state reversal
 - Status LED: **🟢 Green (Spent Mode)**
 
-🔧 Implementation Steps
+## 🧠 Technical Implementation
 
-**Step 1: USB Mass Storage Setup**
+### Cryptographic Operations
 
-- Device appears as an **8.2KB USB drive**
-- Implements **FAT12 filesystem** for maximum compatibility
-- Proper boot sector initialization
+- **Key Generation**: Hardware TRNG with NIST SP 800-90B health tests
+- **BIP39**: Generates seed phrases from secure entropy
+- **BIP32**: Hierarchical deterministic wallet support
+- **BIP44**: Full derivation path support with multiple account types
+- **Secure Element**: All operations executed in the SE050 secure boundary
 
-**Step 2: Circuit Break Detection**
+### Tamper Evidence
 
-```cpp
-if (gpio_get(CIRCUIT_PIN) == HIGH) {
-    // Circuit broken, expose private key
-    revealPrivateKey();
-}
-```
+1. When circuit is broken, an interrupt is triggered
+2. Current state is captured and verified
+3. OTP register in SE050 is permanently burned with tamper status
+4. Device transitions to revealed state, exposing private key
+5. Hardware enforced irreversibility prevents unauthorized state changes
 
-- **HIGH = Circuit broken** → Private key is revealed
-- **LOW = Circuit intact** → Private key remains encrypted
+### USB Mass Storage
 
-**Step 3: Wallet Generation**
+- Device appears as a small USB drive with FAT12 filesystem
+- User provides entropy by dropping any file onto the drive
+- README file displays current device state and relevant information
+- In tampered state, private key is displayed in WIF format for easy import
 
-- User drops **any file** onto the USB drive
-- File content **seeds entropy** for key generation
-- Bitcoin keypair is derived using **BIP standards**
-- Encrypted **private key** stored in flash memory
+## 🏗️ Development Roadmap
 
-**Step 4: OTP Security Activation**
+1️⃣ ✅ Implement **USB Mass Storage** 
+2️⃣ ✅ Add **LED Status Indication** 
+3️⃣ ✅ Integrate **Circuit Monitoring** 
+4️⃣ ✅ Implement **SE050 Secure Element Integration**
+5️⃣ ✅ Implement **Bitcoin Wallet Generation** with BIP standards
+6️⃣ ✅ Develop **Tamper-Evident OTP Security**
+7️⃣ 🛡️ **Extensive Security Testing & Auditing**
+8️⃣ 🔄 **Hardware Production & Distribution**
 
-- **When circuit breaks:**
-  - OTP register **burned to 0x00** (irreversible)
-  - Permanently marks the device as **spent**
+## 🏭 Manufacturing
 
-**Step 5: User Interface & Status LED**
+The Mint device is designed for:
 
-| **State**             | **LED Color** | **Description**            |
-| --------------------- | ------------- | -------------------------- |
-| **Secure (Intact)**   | 🔴 Red        | Private key protected      |
-| **Spent (Broken)**    | 🟢 Green      | Private key revealed       |
-| **Initializing**      | 🔵 Blue       | Device setup in progress   |
-| **Generating Wallet** | 🟡 Yellow     | Key generation in progress |
+- Simple assembly with standard SMT processes
+- Minimal component count for reliability
+- Secure provisioning process for initial device setup
+- Tamper-evident packaging
 
-🏗️ Development Roadmap
+See `Fabrication Files/` directory for:
+- Complete BOM (Bill of Materials)
+- Gerber files for PCB manufacturing
+- Pick and place files for automated assembly
 
-1️⃣ Implement **USB Mass Storage** ✅\
-2️⃣ Add **LED Status Indication** ✅\
-3️⃣ Integrate **Circuit Monitoring** 🔄\
-4️⃣ Implement **Bitcoin Wallet Generation** 🔄\
-5️⃣ Develop **Tamper-Evident OTP Security** 🔄\
-6️⃣ **Extensive Security Testing** 🛡️
+## ⚖️ Security Considerations
 
-🔥 Security Layers
+The Mint device balances several key security considerations:
 
-**Physical Security**
+1. **Offline Security**: Functions completely without internet connectivity
+2. **Physical Verification**: Anyone can visually inspect if the circuit is intact
+3. **User Autonomy**: No third-party trust or external verification required
+4. **Transparent Design**: Open-source hardware and software for security review
 
-- Circuit must be **difficult to repair** without detection.
-- **OTP burning** provides second-layer tamper evidence.
+## 🔥 The Mint Difference: A True Bearer Asset
 
-**Cryptographic Security**
+Unlike traditional **hardware wallets**, Mint is a **physical Bitcoin instrument**, designed for **offline trustless transactions**. Once the circuit is broken, **there's no going back**—just like a real-world bearer bond or cash.
 
-- Proper **entropy collection**
-- Secure **key generation & storage**
-- **AES encryption** while circuit remains intact
+## 🚀 Getting Started
 
-**User Safety & Clarity**
+### For Users
 
-- **Clear LED indicators** for user state awareness
-- **No accidental key exposure**
-- **USB storage contains a README** explaining device states
+1. **Setup**: Plug in the device via USB
+2. **Wallet Generation**: Drop any file onto the USB drive
+3. **Funding**: Send Bitcoin to the displayed address
+4. **Transfer**: Give the device to another person
+5. **Redemption**: Break the circuit to reveal the private key
 
-📂 File Structure
+### For Developers
 
-```
-main.ino          - Core firmware
-mint.h/cpp        - Device logic
-mint_storage.h/cpp - USB & storage handling
-mint_led.h/cpp    - LED status management
-mint_wallet.h/cpp - Bitcoin wallet operations
-```
+1. **Build Environment**: Set up Arduino IDE with RP2040 support
+2. **Libraries**: Install required libraries (Adafruit_TinyUSB, Adafruit_NeoPixel, etc.)
+3. **Hardware**: Connect SE050 to RP2040 via I2C
+4. **Compile & Flash**: Upload the firmware to your RP2040 board
+5. **Testing**: Verify all functionality using the test suite
 
-🛠️ Testing Protocol
+## 🤝 Contributing
 
-✔️ USB mounting & file operations\
-✔️ LED status accuracy\
-✔️ Wallet generation & entropy validation\
-✔️ OTP burning effectiveness\
-✔️ Tamper detection & circuit integrity verification
+We welcome contributions from:
+- Security researchers
+- Hardware engineers
+- Cryptographers
+- Bitcoin developers
+- UI/UX designers
 
-⚡ The Mint Difference: A True Bearer Asset
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 
-Unlike traditional **hardware wallets**, Mint is a **physical Bitcoin instrument**, designed for **offline trustless transactions**. Once the circuit is broken, **there’s no going back**—just like a real-world bearer bond or cash.
+## 📜 License
 
----
-
-🎨 Visual References
-
-![mintv2](https://github.com/user-attachments/assets/358ed475-1666-4fdf-9f24-85b0c5721bf6)
-![Mint_Top_PCB-removebg-preview](https://github.com/user-attachments/assets/ebfa36c4-efb8-4c33-9b49-b35448d6788a)
-![Mint_Layers_PCB-removebg-preview](https://github.com/user-attachments/assets/f1ca6875-9305-4681-b5b6-e75783d2bf76)
-![Mint_bottom_PCB-removebg-preview](https://github.com/user-attachments/assets/48ca20a6-6ad1-4647-9a84-f48218eb581b)
-
----
-
-🤖 Component List
-
-![Mint Component List](https://github.com/user-attachments/assets/10cf52f9-9c92-4a53-b3e6-251adaa08b6a)
-
-
-
----
-
-⚡ Key Generation Process
-
-```cpp
-// Generate Bitcoin Key
-void generateWallet(uint8_t* entropy, size_t size) {
-    uint8_t private_key[32];
-    sha256(entropy, size, private_key);
-    
-    uint8_t public_key[33];
-    generate_public_key(private_key, public_key);
-    
-    char address[35];
-    generate_bitcoin_address(public_key, address);
-}
-```
-
-🎯 Why Mint?
-
-🚀 **Trustless** – No need to trust anyone, it’s **physically verifiable**\
-🔥 **Self-contained** – Works **without internet or online verification**\
-🔒 **Tamper-proof** – Physical and cryptographic security baked-in\
-💎 **Bitcoin-Native** – Designed purely for Bitcoin, no shitcoins
-
----
-
-🤝 Contributing:
-We welcome contributions from security researchers, hardware engineers, and bitcoiners in general.
-
-⚠️ Security Note:
-Mint implements rigorous security standards. All implementations must follow our comprehensive security guidelines.
-
-📜 License:
 MIT License - Freedom to innovate, obligation to attribute.
 
+## 📞 Contact
+
+- Telegram: [Bitcoin Mint Channel](https://t.me/bitcoinmint)
+- GitHub Issues: For bug reports and feature requests
